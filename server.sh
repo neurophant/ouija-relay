@@ -1,5 +1,5 @@
-cd /var/www/ouija-relay/
+cd /var/ouija-relay/
 source .env/bin/activate
-source ../ouija-relay.sh
+source ../tuning/ouija-relay.sh
 
 python server.py
