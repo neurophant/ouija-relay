@@ -12,6 +12,12 @@ Hides TCP traffic in encrypted UDP traffic between relay and proxy servers
     :alt: UDP tunneling
     :width: 800
 
+Requirements
+------------
+
+* Python 3.11+
+* Ouija 1.1.0
+
 Setup - Ubuntu
 --------------
 
