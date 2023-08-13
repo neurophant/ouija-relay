@@ -24,6 +24,7 @@ async def main() -> None:
         udp_timeout=settings.UDP_TIMEOUT,
         udp_retries=settings.UDP_RETRIES,
         udp_capacity=settings.UDP_CAPACITY,
+        udp_resend_sleep=settings.UDP_RESEND_SLEEP,
     )
     interface = Interface(
         telemetry=Telemetry(),
