@@ -70,7 +70,8 @@ Setup - Ubuntu
     sudo apt-get install supervisor
 
     mkdir ouija-tuning
-    touch ouija-tuning/ouija-relay.sh - **place your env variables here**
+    # place your env variables here
+    touch ouija-tuning/ouija-relay.sh
 
     git clone https://github.com/neurophant/ouija-relay.git
     cd ouija-relay
