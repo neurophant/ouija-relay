@@ -3,6 +3,8 @@ Ouija relay
 
 Ouija UDP relay with HTTPS proxy server interface built on top of `Ouija <https://github.com/neurophant/ouija>`_ library
 
+Works in pair with `ouija-proxy <https://github.com/neurophant/ouija-proxy>`_
+
 Features
 --------
 
