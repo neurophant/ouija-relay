@@ -28,20 +28,11 @@ async def main() -> None:
             relay = StreamRelay(
                 telemetry=StreamTelemetry(),
                 tuning=tuning,
+                relay_host=settings.RELAY_HOST,
+                relay_port=settings.RELAY_PORT,
                 proxy_host=settings.PROXY_HOST,
                 proxy_port=settings.PROXY_PORT,
             )
-
-            if settings.MONITOR:
-                asyncio.create_task(relay.debug())
-
-            server = await asyncio.start_server(
-                relay.serve,
-                settings.RELAY_HOST,
-                settings.RELAY_PORT,
-            )
-            async with server:
-                await server.serve_forever()
         case Protocol.UDP:
             tuning = DatagramTuning(
                 fernet=settings.fernet,
@@ -58,22 +49,18 @@ async def main() -> None:
             relay = DatagramRelay(
                 telemetry=DatagramTelemetry(),
                 tuning=tuning,
+                relay_host=settings.RELAY_HOST,
+                relay_port=settings.RELAY_PORT,
                 proxy_host=settings.PROXY_HOST,
                 proxy_port=settings.PROXY_PORT,
             )
-
-            if settings.MONITOR:
-                asyncio.create_task(relay.debug())
-
-            server = await asyncio.start_server(
-                relay.serve,
-                settings.RELAY_HOST,
-                settings.RELAY_PORT,
-            )
-            async with server:
-                await server.serve_forever()
         case _:
             raise NotImplementedError
+
+    if settings.MONITOR:
+        asyncio.create_task(relay.debug())
+
+    await relay.serve()
 
 
 if __name__ == '__main__':
