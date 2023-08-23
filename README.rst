@@ -1,3 +1,5 @@
+Archived, replaced with `ouija-config <https://github.com/neurophant/ouija-config>`_
+
 Ouija relay
 ===========
 
